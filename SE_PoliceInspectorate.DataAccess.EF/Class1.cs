@@ -1,4 +1,4 @@
-﻿namespace SE_PoliceInspectorate.DataAccess.EF
+﻿namespace PoliceInspectorate.DataAccess.EF
 {
     public class Class1
     {

@@ -1,4 +1,4 @@
-﻿namespace SE_PoliceInspectorate.DataAccess.Abstractions
+﻿namespace PoliceInspectorate.DataAccess.Abstractions
 {
     public class Class1
     {

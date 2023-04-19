@@ -1,4 +1,4 @@
-﻿using SE_PoliceInspectorate.DataAccess.Model;
+﻿using PoliceInspectorate.DataAccess.Model;
 using System.ComponentModel.DataAnnotations;
 
 namespace PoliceInspectorate.DataModel

@@ -1,4 +1,4 @@
-namespace SE_PoliceInspectorate.Models
+namespace PoliceInspectorate.Models
 {
     public class ErrorViewModel
     {

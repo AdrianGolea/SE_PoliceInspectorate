@@ -1,4 +1,4 @@
-﻿namespace SE_PoliceInspectorate.DataAccess.Model
+﻿namespace PoliceInspectorate.DataAccess.Model
 {
     public class Class1
     {
