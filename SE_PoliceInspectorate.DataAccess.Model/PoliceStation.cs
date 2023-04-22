@@ -1,7 +1,9 @@
 ﻿using PoliceInspectorate.DataAccess.Model;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Principal;
-namespace PoliceInspectorate.DataModel
+
+
+namespace SE_PoliceInspectorate.DataAccess.Model
 {
     public class PoliceStation : IEntity
     {

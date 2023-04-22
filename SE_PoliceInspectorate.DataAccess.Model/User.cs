@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Identity;
-using PoliceInspectorate.DataModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PoliceInspectorate.DataAccess.Model
+namespace SE_PoliceInspectorate.DataAccess.Model
 {
     public class User : IdentityUser<int>, IEntity
     {
@@ -23,12 +22,12 @@ namespace PoliceInspectorate.DataAccess.Model
         [InverseProperty("To")]
         public ICollection<ConferenceMessage> ReceivedMessages { get; set; }*/
         [InverseProperty("CreatedBy")]
-        public ICollection<ClassifiedFile> CreatedFiles { get; set; }
+        public ICollection<ClassifiedFile>? CreatedFiles { get; set; }
         [InverseProperty("UpdatedBy")]
-        public ICollection<ClassifiedFile> UpdatedFiles { get; set; }
+        public ICollection<ClassifiedFile>? UpdatedFiles { get; set; }
 
         [InverseProperty("UpdatedBy")]
-        public ICollection<ClassifiedFile> UpdatedCriminalFiles { get; set; }
+        public ICollection<ClassifiedFile>? UpdatedCriminalFiles { get; set; }
 
 
     }

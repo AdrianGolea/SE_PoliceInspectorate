@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PoliceInspectorate.DataAccess.Model
+namespace SE_PoliceInspectorate.DataAccess.Model
 {
     public class Criminal : IEntity
     {
@@ -17,7 +17,7 @@ namespace PoliceInspectorate.DataAccess.Model
         public string? Alias { get; set; }
 
         [Required]
-        public string NationalIdNumber { get; set; } = string.Empty;
+        public string? NationalIdNumber { get; set; }
 
         public string? Address { get; set; }
 

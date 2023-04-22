@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PoliceInspectorate.DataAccess.Abstraction
+namespace SE_PoliceInspectorate.DataAccess.Abstraction
 {
     public interface IBaseRepository<T> where T : class
     {

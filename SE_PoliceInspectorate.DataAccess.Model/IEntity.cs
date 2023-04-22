@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PoliceInspectorate.DataAccess.Model
+namespace SE_PoliceInspectorate.DataAccess.Model
 {
     public interface IEntity
     {

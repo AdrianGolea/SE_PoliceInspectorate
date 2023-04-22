@@ -1,7 +1,7 @@
 ﻿using PoliceInspectorate.DataAccess.Model;
 using System.ComponentModel.DataAnnotations;
 
-namespace PoliceInspectorate.DataModel
+namespace SE_PoliceInspectorate.DataAccess.Model
 {
     public class ClassifiedFile : IEntity
     {
@@ -15,9 +15,9 @@ namespace PoliceInspectorate.DataModel
         public DateTime? IncarcerationDate { get; set; }
         public DateTime? ExpectedReleaseDate { get; set; }
         public int? CreatedById { get; set; }
-        //   public User? CreatedBy { get; set; }
+        public User? CreatedBy { get; set; }
         public int? UpdatedById { get; set; }
-        //   public User? UpdatedBy { get; set; }
+        public User? UpdatedBy { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

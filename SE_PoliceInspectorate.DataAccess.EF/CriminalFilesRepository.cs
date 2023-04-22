@@ -1,46 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using PoliceInspectorate.DataAccess.Abstractions;
-using PoliceInspectorate.DataModel;
-using PoliceInspectorate.DataAccess.Model;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using SE_PoliceInspectorate.DataAccess.Model;
-using PoliceInspectorate.DataModel;
-using PoliceInspectorate.DataAccess.Abstraction;
+using SE_PoliceInspectorate.DataAccess.Abstractions;
 
-namespace PoliceInspectorate.DataAccess.EF
+namespace SE_PoliceInspectorate.DataAccess.EF
 {
    
    
-        public class ClassifiedFileRepository : BaseRepository<ClassifiedFile>, IClassifiedFilesRepository
+        public class CriminalFilesRepository : BaseRepository<Criminal>, ICriminalFilesRepository
         {
             public readonly IHttpContextAccessor _httpContextAccessor;
-            public ClassifiedFileRepository(PoliceInspectorateContext dbContext, IHttpContextAccessor httpContextAccessor) : base(dbContext)
-            {
-                this._httpContextAccessor = httpContextAccessor;
-            }
+        
+        public CriminalFilesRepository(PoliceInspectorateContext dbContext, IHttpContextAccessor httpContextAccessor)
+    : base(dbContext)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
 
-            public override IQueryable<ClassifiedFile> GetAll()
+        public override IQueryable<Criminal> GetAll()
             {
-                return dbContext.Set<ClassifiedFile>()
+                return dbContext.Set<Criminal>()
                                 .Include(classifiedFile => classifiedFile.CreatedBy)
                                 .Include(classifiedFile => classifiedFile.UpdatedBy)
                                 .AsNoTracking();
             }
 
-            public IQueryable<ClassifiedFile> Search(string searchString = null)
+            public IQueryable<Criminal> Search(string? searchString)
             {
-                if (searchString == null)
+                if (string.IsNullOrEmpty(searchString))
                     return GetAll();
 
-                return GetAll().Where(x => x.InmateName.Contains(searchString) ||
-                                                x.Felony.Contains(searchString) ||
-                                                x.Title.Contains(searchString) ||
-                                                x.Description.Contains(searchString) ||
-                                                x.Sentence.Contains(searchString));
+                return GetAll().Where(x => x.Name.Contains(searchString) ||
+                                           x.Alias.Contains(searchString) ||
+                                           x.NationalIdNumber.Contains(searchString) ||
+                                           x.Address.Contains(searchString) ||
+                                           x.Phone.Contains(searchString) ||
+                                           x.Email.Contains(searchString) ||
+                                           x.Felony.Contains(searchString) ||
+                                           x.Description.Contains(searchString) ||
+                                           x.Sentence.Contains(searchString));
             }
 
             public IQueryable<User> GetUsers()
@@ -53,6 +52,9 @@ namespace PoliceInspectorate.DataAccess.EF
                 return int.Parse(this._httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
             }
         }
+
+
+
     
 
 }
