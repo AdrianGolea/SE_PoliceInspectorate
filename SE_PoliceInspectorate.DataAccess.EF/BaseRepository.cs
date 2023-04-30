@@ -11,71 +11,58 @@ using SE_PoliceInspectorate.DataAccess.Model;
 
 namespace SE_PoliceInspectorate.DataAccess.EF
 {
-    /*using global::PoliceInspectorate.DataAccess.Model;
-    using Microsoft.EntityFrameworkCore;
-    using PoliceInspectorate.Abstractions.Repository;
-    using PoliceInspectorate.DataModel;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;*/
-
-    /*namespace PoliceInspectorate.DataAccess
-    {*/
-        public class BaseRepository<T> : IBaseRepository<T> where T : class, IEntity
+    public class BaseRepository<T> : IBaseRepository<T> where T : class, IEntity
+    {
+        protected readonly PoliceInspectorateContext dbContext;
+        public BaseRepository(PoliceInspectorateContext dbContext)
         {
-            protected readonly PoliceInspectorateContext dbContext;
-            public BaseRepository(PoliceInspectorateContext dbContext)
-            {
-                this.dbContext = dbContext;
-            }
-            public T Add(T element)
-            {
-                var returnEntity = dbContext.Set<T>()
-                                            .Add(element)
-                                         .Entity;
-
-                return returnEntity;
-            }
-
-            public async Task<bool> Delete(int id)
-            {
-                var itemToRemove = await GetByIdAsync(id);
-                if (itemToRemove != null)
-                {
-                    dbContext.Set<T>().Remove(itemToRemove);
-                    return true;
-                }
-                return false;
-            }
-
-
-            public virtual IQueryable<T> GetAll()
-            {
-                return dbContext.Set<T>().AsNoTracking();
-            }
-
-            public async Task<T> GetByIdAsync(int id)
-            {
-                return await GetAll()
-                                 .FirstAsync(entity => entity.Id == id);
-            }
-
-            public virtual T Update(T elementToUpdate)
-            {
-                var returnEntity = dbContext.Set<T>()
-                                            .Update(elementToUpdate)
-                                         .Entity;
-
-                return returnEntity;
-            }
-
-            public async Task SaveAsync()
-            {
-                await dbContext.SaveChangesAsync();
-            }
+            this.dbContext = dbContext;
         }
-   // }
+        public T Add(T element)
+        {
+            var returnEntity = dbContext.Set<T>()
+                                        .Add(element)
+                                     .Entity;
+
+            return returnEntity;
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+            var itemToRemove = await GetByIdAsync(id);
+            if (itemToRemove != null)
+            {
+                dbContext.Set<T>().Remove(itemToRemove);
+                return true;
+            }
+            return false;
+        }
+
+
+        public virtual IQueryable<T> GetAll()
+        {
+            return dbContext.Set<T>().AsNoTracking();
+        }
+
+        public async Task<T> GetByIdAsync(int id)
+        {
+            return await GetAll()
+                             .FirstAsync(entity => entity.Id == id);
+        }
+
+        public virtual T Update(T elementToUpdate)
+        {
+            var returnEntity = dbContext.Set<T>()
+                                        .Update(elementToUpdate)
+                                     .Entity;
+
+            return returnEntity;
+        }
+
+        public async Task SaveAsync()
+        {
+            await dbContext.SaveChangesAsync();
+        }
+    }
 
 }

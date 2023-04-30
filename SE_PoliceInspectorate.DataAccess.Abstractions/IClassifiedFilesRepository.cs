@@ -10,12 +10,8 @@ namespace SE_PoliceInspectorate.DataAccess.Abstractions
 {
     public interface IClassifiedFilesRepository : IBaseRepository<ClassifiedFile>
     {
-        IQueryable<ClassifiedFile> GetAll();
-
-        IQueryable<ClassifiedFile> Search(string? searchString);
-
         IQueryable<User> GetUsers();
-
-        public int GetCurrentUserId();
+        IQueryable<ClassifiedFile> Search(string searchString = null);
+        int GetCurrentUserId();
     }
 }

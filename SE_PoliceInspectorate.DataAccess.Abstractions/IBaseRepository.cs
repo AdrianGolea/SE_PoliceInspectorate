@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SE_PoliceInspectorate.DataAccess.Abstraction
 {
-    public interface IBaseRepository<T> where T : class
+    public interface IBaseRepository<T>
     {
         Task<T> GetByIdAsync(int id);
         IQueryable<T> GetAll();

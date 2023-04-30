@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PoliceInspectorate.Models;
 using System.Diagnostics;
+using SE_PoliceInspectorate.DataAccess;
+using PoliceInspectorate.Models;
 
 namespace PoliceInspectorate.Controllers
 {

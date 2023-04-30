@@ -6,10 +6,10 @@ using SE_PoliceInspectorate.DataAccess.Model;
 
 namespace SE_PoliceInspectorate.DataAccess.EF
 {
-    public class ClassifiedFilesRepository : BaseRepository<ClassifiedFile>, IClassifiedFilesRepository
+    public class ClassifiedFileRepository : BaseRepository<ClassifiedFile>, IClassifiedFilesRepository
     {
         public readonly IHttpContextAccessor _httpContextAccessor;
-        public ClassifiedFilesRepository(PoliceInspectorateContext dbContext, IHttpContextAccessor httpContextAccessor) : base(dbContext)
+        public ClassifiedFileRepository(PoliceInspectorateContext dbContext, IHttpContextAccessor httpContextAccessor) : base(dbContext)
         {
             this._httpContextAccessor = httpContextAccessor;
         }
@@ -22,9 +22,9 @@ namespace SE_PoliceInspectorate.DataAccess.EF
                             .AsNoTracking();
         }
 
-        public IQueryable<ClassifiedFile> Search(string? searchString)
+        public IQueryable<ClassifiedFile> Search(string searchString = null)
         {
-            if (string.IsNullOrEmpty(searchString))
+            if (searchString == null)
                 return GetAll();
 
             return GetAll().Where(x => x.InmateName.Contains(searchString) ||

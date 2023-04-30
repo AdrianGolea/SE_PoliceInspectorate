@@ -7,11 +7,11 @@ namespace SE_PoliceInspectorate.DataAccess.Model
     {
         public int Id { get; set; }
         [Required]
-        public string Title { get; set; } = string.Empty;
+        public string Title { get; set; }
         public string? Description { get; set; }
-        public string InmateName { get; set; } = string.Empty;
-        public string Felony { get; set; } = string.Empty;
-        public string Sentence { get; set; } = string.Empty;
+        public string InmateName { get; set; }
+        public string Felony { get; set; }
+        public string Sentence { get; set; }
         public DateTime? IncarcerationDate { get; set; }
         public DateTime? ExpectedReleaseDate { get; set; }
         public int? CreatedById { get; set; }
