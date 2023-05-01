@@ -22,7 +22,7 @@ namespace SE_PoliceInspectorate.DataAccess.EF
                             .AsNoTracking();
         }
 
-        public IQueryable<ClassifiedFile> Search(string searchString = null)
+        public IQueryable<ClassifiedFile> Search(string? searchString)
         {
             if (searchString == null)
                 return GetAll();
@@ -32,6 +32,8 @@ namespace SE_PoliceInspectorate.DataAccess.EF
                                             x.Title.Contains(searchString) ||
                                             x.Description.Contains(searchString) ||
                                             x.Sentence.Contains(searchString));
+
+
         }
 
         public IQueryable<User> GetUsers()
@@ -45,4 +47,3 @@ namespace SE_PoliceInspectorate.DataAccess.EF
         }
     }
 }
-
