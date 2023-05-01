@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SE_PoliceInspectorate.DataAccess.Abstractions\SE_PoliceInspectorate.DataAccess.Abstractions.csproj" />
+    <ProjectReference Include="..\SE_PoliceInspectorate.DataAccess.EF\SE_PoliceInspectorate.DataAccess.EF.csproj" />
     <ProjectReference Include="..\SE_PoliceInspectorate.DataAccess.Model\SE_PoliceInspectorate.DataAccess.Model.csproj" />
   </ItemGroup>
 

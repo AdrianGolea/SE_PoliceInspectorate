@@ -25,6 +25,8 @@ namespace SE_PoliceInspectorate.DataAccess.EF
             return dbContext.Set<PoliceStation>().AsNoTracking();
         }
 
+       
+
         public override User Update(User user)
         {
             var entity = dbContext.Set<User>().Where(x => x.Id == user.Id).First();
