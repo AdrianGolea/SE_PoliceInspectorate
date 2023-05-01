@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using global::PoliceInspectorate.DataAccess.Model;
-using SE_PoliceInspectorate.DataAccess.Abstractions;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using SE_PoliceInspectorate.DataAccess.Abstraction;
 using SE_PoliceInspectorate.DataAccess.Model;
 
