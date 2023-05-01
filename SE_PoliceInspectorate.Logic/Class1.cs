@@ -1,4 +1,4 @@
-﻿namespace SE_PoliceInspectorate.Logic
+﻿namespace PoliceInspectorate.Logic
 {
     public class Class1
     {
