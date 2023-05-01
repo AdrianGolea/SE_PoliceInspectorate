@@ -14,5 +14,8 @@ namespace SE_PoliceInspectorate.DataAccess.Abstraction
         Task<bool> Delete(int id);
         T Update(T elementToUpdate);
         Task SaveAsync();
+
+
+        
     }
 }

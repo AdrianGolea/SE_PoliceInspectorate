@@ -1,7 +1,24 @@
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using SE_PoliceInspectorate.DataAccess.Abstractions;
+using SE_PoliceInspectorate.DataAccess.EF;
+using SE_PoliceInspectorate.DataAccess.Model;
+using System.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+builder.Services.AddHttpContextAccessor();
+
+//builder.Services.AddDbContext<PoliceInspectorateContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("PoliceInspectorateContext")));
+builder.Services.AddDbContext<PoliceInspectorateContext>(options =>
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("PoliceInspectorateContext")));
+builder.Services.AddScoped<IUsersRepository, UserRepository>();
+
 
 var app = builder.Build();
 
@@ -18,10 +35,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();

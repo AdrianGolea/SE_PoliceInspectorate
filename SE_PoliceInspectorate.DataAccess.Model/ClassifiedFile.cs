@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SE_PoliceInspectorate.DataAccess.Model;
+using System.ComponentModel.DataAnnotations;
 
 namespace SE_PoliceInspectorate.DataAccess.Model
 {
@@ -6,11 +7,11 @@ namespace SE_PoliceInspectorate.DataAccess.Model
     {
         public int Id { get; set; }
         [Required]
-        public string Title { get; set; }
+        public string? Title { get; set; }
         public string? Description { get; set; }
-        public string InmateName { get; set; }
-        public string Felony { get; set; }
-        public string Sentence { get; set; }
+        public string? InmateName { get; set; }
+        public string? Felony { get; set; }
+        public string? Sentence { get; set; }
         public DateTime? IncarcerationDate { get; set; }
         public DateTime? ExpectedReleaseDate { get; set; }
         public int? CreatedById { get; set; }

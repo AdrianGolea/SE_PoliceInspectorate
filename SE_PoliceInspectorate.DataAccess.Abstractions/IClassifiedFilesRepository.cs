@@ -11,7 +11,7 @@ namespace SE_PoliceInspectorate.DataAccess.Abstractions
     public interface IClassifiedFilesRepository : IBaseRepository<ClassifiedFile>
     {
         IQueryable<User> GetUsers();
-        IQueryable<ClassifiedFile> Search(string searchString = null);
+        IQueryable<ClassifiedFile> Search(string? searchString);
         int GetCurrentUserId();
     }
 }

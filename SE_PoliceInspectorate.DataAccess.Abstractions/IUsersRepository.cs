@@ -13,3 +13,4 @@ namespace SE_PoliceInspectorate.DataAccess.Abstractions
         IQueryable<PoliceStation> GetStations();
     }
 }
+
