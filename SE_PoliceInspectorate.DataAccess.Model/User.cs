@@ -15,10 +15,7 @@ namespace SE_PoliceInspectorate.DataAccess.Model
         public PoliceStation? PoliceStation { get; set; }
 
         [InverseProperty("From")]
-        public ICollection<ConferenceMessage> SentMessages { get; set; }
-        [InverseProperty("To")]
-        public ICollection<ConferenceMessage> ReceivedMessages { get; set; }
-        [InverseProperty("CreatedBy")]
+       
         public ICollection<ClassifiedFile> CreatedFiles { get; set; }
         [InverseProperty("UpdatedBy")]
         public ICollection<ClassifiedFile> UpdatedFiles { get; set; }

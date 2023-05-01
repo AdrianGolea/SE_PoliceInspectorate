@@ -16,6 +16,6 @@ namespace SE_PoliceInspectorate.DataAccess.Abstraction
         Task SaveAsync();
 
 
-        Task
+        
     }
 }

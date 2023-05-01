@@ -7,11 +7,6 @@ namespace SE_PoliceInspectorate.DataAccess.Model
 {
     public class Role : IdentityRole<int>, IEntity
     {
-        public Role()
-        {
-            this.Permissions = new HashSet<Permission>();
-        }
 
-        public virtual ICollection<Permission> Permissions { get; set; }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using SE_PoliceInspectorate.DataAccess;
 using PoliceInspectorate.Models;
-
+using System.Diagnostics;
 namespace PoliceInspectorate.Controllers
 {
     public class HomeController : Controller
