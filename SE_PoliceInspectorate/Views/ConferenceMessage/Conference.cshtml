@@ -1,0 +1,59 @@
+﻿@using SE_PoliceInspectorate.DataAccess.Model;
+@model SE_PoliceInspectorate.DataAccess.Model.ConferenceMessage
+
+@{
+    ViewData["Title"] = "Conference";
+}
+@{
+
+    int? currentUserId = ViewData["CurrentUserId"] as int?;
+    IEnumerable<ConferenceMessage> conferenceMessages = ViewData["ConferenceMessage"] as IEnumerable<ConferenceMessage>;
+}
+
+@if (conferenceMessages is not null)
+{
+    @foreach (var item in conferenceMessages)
+    {
+        @if (item.FromId == currentUserId)
+        {
+            <div class="alert alert-primary" style="align-self:flex-end" role="alert">
+                @Html.DisplayFor(modelItem => item.Content)
+            </div>
+        }
+        @if (item.ToId == currentUserId)
+        {
+            <div class="alert alert-secondary" style="align-self:flex-end" role="alert">
+                @Html.DisplayFor(modelItem => item.Content)
+            </div>
+        }
+    }
+}
+
+@*
+<footer>
+    <form asp-action="Conference">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <input asp-for="Content" class="form-control" />
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</footer>
+*@
+<footer class="border-top footer text-muted">
+    <form asp-action="Conference">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <input asp-for="Content" class="form-control" />
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <div>
+            <input type="submit" value="Send" class="btn btn-primary" />
+        </div>
+    </form>
+</footer>
+
