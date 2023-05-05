@@ -25,8 +25,6 @@ namespace SE_PoliceInspectorate.DataAccess.Model
 
         [InverseProperty(nameof(ClassifiedFile.UpdatedBy))]
         public ICollection<ClassifiedFile> UpdatedFiles { get; set; }
-
-
     }
 }
 
