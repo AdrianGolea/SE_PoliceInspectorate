@@ -1,0 +1,35 @@
+﻿@using SE_PoliceInspectorate.DataAccess.Model;
+@model IEnumerable<SE_PoliceInspectorate.DataAccess.Model.ClassifiedFile>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Classified files</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="ClassifiedFiles" asp-action="Index">
+    <p>
+        Search: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+@foreach (var item in Model) {
+    <div class="card w-75" style="padding: 10px; margin: 10px">
+      <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Last updated by: @Html.DisplayFor(modelItem => item.UpdatedBy.FirstName) @Html.DisplayFor(modelItem => item.UpdatedBy.LastName) on @Html.DisplayFor(modelItem => item.UpdatedAt)</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Inmate: @Html.DisplayFor(modelItem => item.InmateName)</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Felony: @Html.DisplayFor(modelItem => item.Felony)</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Sentence: @Html.DisplayFor(modelItem => item.Sentence)</h6>
+        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+        <a class="card-link"><a asp-action="Details" asp-route-id="@item.Id">View</a></a>
+        <a class="card-link"><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></a>
+        <a class="card-link"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></a>
+      </div>
+    </div>
+}
