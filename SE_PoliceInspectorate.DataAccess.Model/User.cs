@@ -11,6 +11,7 @@ namespace SE_PoliceInspectorate.DataAccess.Model
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
 
+       
         public int? PoliceStationId { get; set; }
         public PoliceStation? PoliceStation { get; set; }
 
