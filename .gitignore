@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/SE_PoliceInspectorate.DataAccess.EF/Migrations/PoliceInspectorateContextModelSnapshot.cs
+/SE_PoliceInspectorate.DataAccess.EF/Migrations/20230505142734_InitialCreate.Designer.cs
+/SE_PoliceInspectorate.DataAccess.EF/Migrations/20230505142734_InitialCreate.cs
+/SE_PoliceInspectorate/Controllers/UserController.cs
