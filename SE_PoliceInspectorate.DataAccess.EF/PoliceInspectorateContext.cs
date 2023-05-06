@@ -12,6 +12,8 @@ namespace SE_PoliceInspectorate.DataAccess.EF
         }
 
         public DbSet<ClassifiedFile> ClassifiedFile { get; set; }
+        public DbSet<ConferenceMessage> ConferenceMessage { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }
 

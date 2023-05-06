@@ -120,6 +120,14 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=ConferenceMessage}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=User}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=ClassifiedFile}/{action=Index}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();
