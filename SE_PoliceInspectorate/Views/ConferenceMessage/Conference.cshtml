@@ -1,5 +1,4 @@
-﻿@using SE_PoliceInspectorate.DataAccess.Model;
-@model SE_PoliceInspectorate.DataAccess.Model.ConferenceMessage
+﻿@model SE_PoliceInspectorate.DataAccess.Model.ConferenceMessage
 
 @{
     ViewData["Title"] = "Conference";
@@ -7,12 +6,12 @@
 @{
 
     int? currentUserId = ViewData["CurrentUserId"] as int?;
-    IEnumerable<ConferenceMessage> conferenceMessages = ViewData["ConferenceMessage"] as IEnumerable<ConferenceMessage>;
+    IEnumerable<ConferenceMessage> conferenceMessage = ViewData["ConferenceMessage"] as IEnumerable<ConferenceMessage>;
 }
 
-@if (conferenceMessages is not null)
+@if (conferenceMessage is not null)
 {
-    @foreach (var item in conferenceMessages)
+    @foreach (var item in conferenceMessage)
     {
         @if (item.FromId == currentUserId)
         {
