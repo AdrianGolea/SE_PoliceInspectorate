@@ -14,11 +14,11 @@ namespace SE_PoliceInspectorate.Controllers
 {
 
     [Authorize]
-    public class ConferenceMessagesController : Controller
+    public class ConferenceMessageController : Controller
     {
         private readonly IConferenceMessageRepository _conferenceMessageRepository;
 
-        public ConferenceMessagesController(IConferenceMessageRepository conferenceMessageRepository)
+        public ConferenceMessageController(IConferenceMessageRepository conferenceMessageRepository)
         {
             _conferenceMessageRepository = conferenceMessageRepository;
         }
@@ -27,8 +27,16 @@ namespace SE_PoliceInspectorate.Controllers
         public async Task<IActionResult> Index()
         {
             var users = _conferenceMessageRepository.GetUsers();
-            return View(await users.ToListAsync());
+             return View(await users.ToListAsync());
+           // return View(users);
+           
         }
+        //public async Task<IActionResult> Index()
+        //{
+        //    var users = await _conferenceMessageRepository.GetUsers().ToListAsync();
+        //    return View("~/Presentation/Views/ConferenceMessages/Index.cshtml", users);
+        //}
+
 
         // GET: ClassifiedFiles/Details/5
         public async Task<IActionResult> Conference(int? id)
@@ -74,3 +82,4 @@ namespace SE_PoliceInspectorate.Controllers
 
     }
 }
+
