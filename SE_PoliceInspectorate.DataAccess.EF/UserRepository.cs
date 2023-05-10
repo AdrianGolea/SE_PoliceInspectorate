@@ -14,11 +14,21 @@ namespace SE_PoliceInspectorate.DataAccess.EF
         public UserRepository(PoliceInspectorateContext dbContext) : base(dbContext)
         {
         }
+        //public override IQueryable<User> GetAll()
+        //{
+        //    return dbContext.Set<User>()
+        //                    .Include(user => user.PoliceStation).AsNoTracking();
+        //}
+
         public override IQueryable<User> GetAll()
         {
             return dbContext.Set<User>()
-                            .Include(user => user.PoliceStation).AsNoTracking();
+                .Include(user => user.PoliceStation)
+                .AsQueryable();
         }
+
+   
+
 
         public IQueryable<PoliceStation> GetStations()
         {
