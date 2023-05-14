@@ -13,13 +13,7 @@ namespace SE_PoliceInspectorate.DataAccess.Model
 
        
         public int? PoliceStationId { get; set; }
-        public PoliceStation? PoliceStation { get; set; }
-
-        //[InverseProperty("From")]
-
-        //public ICollection<ClassifiedFile> CreatedFiles { get; set; }
-        //[InverseProperty("UpdatedBy")]
-        //public ICollection<ClassifiedFile> UpdatedFiles { get; set; }
+        public PoliceStation? PoliceStation { get; set; }  
 
         [InverseProperty(nameof(ClassifiedFile.CreatedBy))]
         public ICollection<ClassifiedFile> CreatedFiles { get; set; }

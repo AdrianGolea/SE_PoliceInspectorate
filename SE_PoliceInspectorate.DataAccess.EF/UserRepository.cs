@@ -35,7 +35,10 @@ namespace SE_PoliceInspectorate.DataAccess.EF
             return dbContext.Set<PoliceStation>().AsNoTracking();
         }
 
-       
+        public IQueryable<User> GetUsers()
+        {
+            throw new NotImplementedException();
+        }
 
         public override User Update(User user)
         {
@@ -50,6 +53,11 @@ namespace SE_PoliceInspectorate.DataAccess.EF
             dbContext.SaveChanges();
 
             return entity;
+        }
+
+        IQueryable<User> IUsersRepository.Update(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }
