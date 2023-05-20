@@ -3,7 +3,7 @@ using SE_PoliceInspectorate.DataAccess.EF;
 using SE_PoliceInspectorate.DataAccess.Model;
 
 [TestClass]
-public class MokTests
+public class MockTests
 {
     private Mock<PoliceInspectorateContext> dbContextMock;
     private UserRepository userRepository;
