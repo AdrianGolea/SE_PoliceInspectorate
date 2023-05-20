@@ -1,7 +1,8 @@
-﻿using Moq;
+﻿//using Moq;
 using global::SE_PoliceInspectorate.DataAccess.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 using SE_PoliceInspectorate.DataAccess.EF;
 using System.Collections.Generic;
 using System.Linq;
