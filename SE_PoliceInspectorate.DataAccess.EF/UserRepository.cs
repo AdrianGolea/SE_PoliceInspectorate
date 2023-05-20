@@ -14,18 +14,31 @@ namespace SE_PoliceInspectorate.DataAccess.EF
         public UserRepository(PoliceInspectorateContext dbContext) : base(dbContext)
         {
         }
+        //public override IQueryable<User> GetAll()
+        //{
+        //    return dbContext.Set<User>()
+        //                    .Include(user => user.PoliceStation).AsNoTracking();
+        //}
+
         public override IQueryable<User> GetAll()
         {
             return dbContext.Set<User>()
-                            .Include(user => user.PoliceStation).AsNoTracking();
+                .Include(user => user.PoliceStation)
+                .AsQueryable();
         }
+
+   
+
 
         public IQueryable<PoliceStation> GetStations()
         {
             return dbContext.Set<PoliceStation>().AsNoTracking();
         }
 
-       
+        public IQueryable<User> GetUsers()
+        {
+            throw new NotImplementedException();
+        }
 
         public override User Update(User user)
         {
@@ -40,6 +53,11 @@ namespace SE_PoliceInspectorate.DataAccess.EF
             dbContext.SaveChanges();
 
             return entity;
+        }
+
+        IQueryable<User> IUsersRepository.Update(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

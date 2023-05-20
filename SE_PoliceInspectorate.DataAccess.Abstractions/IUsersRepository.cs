@@ -10,7 +10,10 @@ namespace SE_PoliceInspectorate.DataAccess.Abstractions
 {
     public interface IUsersRepository : IBaseRepository<User>
     {
+        IQueryable<User> GetAll();
+        IQueryable<User> Update(User user);
         IQueryable<PoliceStation> GetStations();
     }
+
 }
 
