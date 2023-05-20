@@ -155,4 +155,5 @@ namespace PoliceInspectorate.Controllers
             return _userRepository.GetAll().Any(e => e.Id == id);
         }
     }
+
 }
