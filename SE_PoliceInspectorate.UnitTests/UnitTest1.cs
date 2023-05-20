@@ -25,7 +25,7 @@ namespace SE_PoliceInspectorate.DataAccess.Tests
         {
             // Arrange
             var message = new ConferenceMessage();
-            var user = new User { Id = 1, UserName = "JohnDoe" };
+            var user = new User { Id = 1, UserName = "Alt_Nume" };
 
             // Act
             message.From = user;
@@ -39,6 +39,7 @@ namespace SE_PoliceInspectorate.DataAccess.Tests
         {
             // Arrange
             var message = new ConferenceMessage();
+       
             var user = new User { Id = 2, UserName = "JaneSmith" };
 
             // Act
